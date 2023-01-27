@@ -17,9 +17,4 @@ export class CreateThoughtComponent {
   createThought() {
     alert("New thought saved!");
   }
-
-  cancel() {
-    alert("Thought canceled!");
-  }
-
 }
