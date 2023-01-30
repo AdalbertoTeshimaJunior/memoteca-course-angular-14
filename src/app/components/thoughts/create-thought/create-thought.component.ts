@@ -1,4 +1,7 @@
+import { ThoughtService } from './../thought.service';
+import { Thought } from './../thought';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-thought',
@@ -7,14 +10,20 @@ import { Component } from '@angular/core';
 })
 export class CreateThoughtComponent {
 
-  thought = {
-    thoughtId: '1',
-    content: 'Aprendendo Angular',
-    authorship: 'Dev',
-    model: 'model2',
+  constructor(
+    private service: ThoughtService,
+    private router: Router,
+    ) { }
+
+  thought: Thought = {
+    content: '',
+    authorship: '',
+    model: 'modelo1',
   }
 
   createThought() {
-    alert("New thought saved!");
+    this.service.createThought(this.thought).subscribe(() => {
+      this.router.navigate(['/listThought'])
+    });
   }
 }
