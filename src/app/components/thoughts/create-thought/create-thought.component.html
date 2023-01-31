@@ -2,24 +2,22 @@
   <header class="header">
       <h2>Adicione um <br> pensamento novo:</h2>
   </header>
-  <form>
+  <form [formGroup]="thoughtForm">
     <label for="thought">Pensamento</label>
     <input
       type="textarea"
       class="input"
       id="thought"
-      name="thought"
+      formControlName="content"
       placeholder="Digite o pensamento"
-      [(ngModel)]="thought.content"
     >
     <label for="thought">Autoria ou fonte</label>
     <input
       type="textarea"
       class="input"
       id="authorship"
-      name="authorship"
+      formControlName="authorship"
       placeholder="Digite a autoria ou fonte"
-      [(ngModel)]="thought.authorship"
     >
     <label for="model">Selecione o modelo do card:</label>
     <div class="container-radio">
@@ -28,8 +26,7 @@
           <input type="radio"
             id="model1"
             value="modelo1"
-            name="model-card"
-            [(ngModel)]="thought.model"
+            formControlName="model"
           >
           <div class="custom-radio">
             <span></span>
@@ -39,8 +36,8 @@
         Prévia:
         <div class="modelo modelo1 ff-roboto-mono">
           <img src="../../../../assets/img/modelo1.png" alt="Blue quotes">
-          <p class="conteudo">{{ thought.content }}</p>
-          <p class="autoria"><b>{{ thought.authorship }}</b></p>
+          <p class="conteudo">{{ thoughtForm.get('content')?.value }}</p>
+          <p class="autoria"><b>{{ thoughtForm.get('authorship')?.value }}</b></p>
         </div>
       </div>
 
@@ -49,8 +46,7 @@
           <input type="radio"
             id="model2"
             value="modelo2"
-            name="model-card"
-            [(ngModel)]="thought.model"
+            formControlName="model"
           >
           <div class="custom-radio">
             <span></span>
@@ -60,8 +56,8 @@
         Prévia:
         <div class="modelo modelo2 ff-roboto-mono">
           <img src="../../../../assets/img/modelo2.png" alt="Light blue quotes">
-          <p class="conteudo">{{ thought.content }}</p>
-          <p class="autoria"><b>{{ thought.authorship }}</b></p>
+          <p class="conteudo">{{ thoughtForm.get('content')?.value }}</p>
+          <p class="autoria"><b>{{ thoughtForm.get('authorship')?.value }}</b></p>
         </div>
       </div>
 
@@ -70,8 +66,7 @@
           <input type="radio"
             id="model3"
             value="modelo3"
-            name="model-card"
-            [(ngModel)]="thought.model"
+            formControlName="model"
           >
           <div class="custom-radio">
             <span></span>
@@ -81,8 +76,8 @@
         Prévia:
         <div class="modelo modelo3 ff-roboto-mono">
           <img src="../../../../assets/img/modelo3.png" alt="Green quotes">
-          <p class="conteudo">{{ thought.content }}</p>
-          <p class="autoria"><b>{{ thought.authorship }}</b></p>
+          <p class="conteudo">{{ thoughtForm.get('content')?.value }}</p>
+          <p class="autoria"><b>{{ thoughtForm.get('authorship')?.value }}</b></p>
         </div>
       </div>
     </div>
