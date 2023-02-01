@@ -29,6 +29,18 @@
       "authorship": "Tecx",
       "model": "modelo3",
       "id": 5
+    },
+    {
+      "content": "Pensamento",
+      "authorship": "cabeça",
+      "model": "modelo3",
+      "id": 6
+    },
+    {
+      "content": "Outro pensamento",
+      "authorship": "mesma cabeça",
+      "model": "modelo2",
+      "id": 7
     }
   ]
 }
