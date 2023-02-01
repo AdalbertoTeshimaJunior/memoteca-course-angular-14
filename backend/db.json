@@ -4,42 +4,49 @@
       "id": 1,
       "content": "Que bom que vc veio",
       "authorship": "Nay",
-      "model": "modelo1"
+      "model": "modelo1",
+      "favorite": false
     },
     {
       "id": 2,
       "content": "Estudando Angular",
       "authorship": "Dev Alura",
-      "model": "modelo2"
+      "model": "modelo2",
+      "favorite": false
     },
     {
       "id": 3,
       "content": "Angular é o melhor",
       "authorship": "Dev Alura",
-      "model": "modelo3"
+      "model": "modelo3",
+      "favorite": false
     },
     {
       "content": "Fatex",
       "authorship": "Tecx",
       "model": "modelo3",
+      "favorite": false,
       "id": 5
     },
     {
       "content": "Pensamento",
       "authorship": "cabeça",
       "model": "modelo3",
+      "favorite": false,
       "id": 6
     },
     {
       "content": "Outro pensamento",
       "authorship": "mesma cabeça",
       "model": "modelo2",
+      "favorite": false,
       "id": 7
     },
     {
       "content": "Teste do Teste 86",
       "authorship": "junin312",
       "model": "modelo3",
+      "favorite": false,
       "id": 8
     }
   ]

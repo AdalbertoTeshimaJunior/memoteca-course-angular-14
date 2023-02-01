@@ -3,6 +3,7 @@ export interface Thought {
   content: string
   authorship: string
   model: string
+  favorite: boolean
 }
 
 export type Thoughts = Array<Thought>;

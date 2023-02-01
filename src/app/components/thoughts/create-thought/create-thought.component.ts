@@ -32,6 +32,7 @@ export class CreateThoughtComponent implements OnInit {
         lowerCaseValidator
       ])],
       model: ['modelo1'],
+      favorite: [false],
     })
   }
 

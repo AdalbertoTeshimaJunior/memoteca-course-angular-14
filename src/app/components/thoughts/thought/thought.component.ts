@@ -1,3 +1,4 @@
+import { ThoughtService } from './../thought.service';
 import { Thought } from './../thought';
 import { Component, Input } from '@angular/core';
 
@@ -10,16 +11,27 @@ export class ThoughtComponent {
 
   @Input() thought: Thought = {
     id: 0,
-    content: 'I love Angular',
-    authorship: 'Nay',
-    model: 'modelo3',
+    content: '',
+    authorship: '',
+    model: '',
+    favorite: false,
   }
 
+  constructor(private service: ThoughtService) { }
+
   widthThought(): string {
-    if(this.thought.content.length >= 256) {
+    if(this.thought.content.length >= 256)
       return 'pensamento-g'
-    }
     return 'pensamento-p'
   }
 
+  updateFavoriteIcon(): string {
+    if (this.thought.favorite == false)
+      return 'inativo';
+    return 'ativo';
+  }
+
+  changeFavorite() {
+    this.service.changeFavorite(this.thought).subscribe();
+  }
 }

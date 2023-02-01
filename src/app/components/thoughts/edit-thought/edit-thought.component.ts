@@ -36,6 +36,7 @@ export class EditThoughtComponent implements OnInit {
           lowerCaseValidator
         ])],
         model: [thought.model],
+        favorite: [thought.favorite],
       });
     });
   }
