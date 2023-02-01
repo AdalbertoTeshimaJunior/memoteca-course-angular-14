@@ -11,11 +11,15 @@ export class ThoughtService {
   private readonly API = 'http://localhost:3000/thoughts';
   constructor( private http: HttpClient) { }
 
-  listThoughts(page: number): Observable<Thoughts> {
+  listThoughts(page: number, filter: string): Observable<Thoughts> {
     const itemsPerPage = 6;
     let params = new HttpParams()
       .set("_page", page)
       .set("_limit", itemsPerPage)
+
+    if (filter.trim().length > 2) {
+      params = params.set("q", filter);
+    }
 
     return this.http.get<Thoughts>(this.API, { params });
   }
