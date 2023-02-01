@@ -2,25 +2,41 @@
   <header class="header">
       <h2>Adicione um <br> pensamento novo:</h2>
   </header>
-  <form>
+  <form [formGroup]="thoughtForm" *ngIf="thoughtForm">
     <label for="thought">Pensamento</label>
     <input
       type="textarea"
       class="input"
       id="thought"
-      name="thought"
+      formControlName="content"
       placeholder="Digite o pensamento"
-      [(ngModel)]="thought.content"
     >
+    <div class="error_message"
+      *ngIf="thoughtForm.get('content')?.errors?.['required'] && thoughtForm.get('content')?.touched">
+      Pensamento é obrigatório!
+    </div>
+
     <label for="thought">Autoria ou fonte</label>
     <input
       type="textarea"
       class="input"
       id="authorship"
-      name="authorship"
+      formControlName="authorship"
       placeholder="Digite a autoria ou fonte"
-      [(ngModel)]="thought.authorship"
     >
+    <div class="error_message"
+      *ngIf="thoughtForm.get('authorship')?.errors?.['required'] && thoughtForm.get('authorship')?.touched">
+      Autoria é obrigatória!
+    </div>
+    <div class="error_message"
+      *ngIf="thoughtForm.get('authorship')?.errors?.['minlength'] && thoughtForm.get('authorship')?.touched">
+      Autoria precisa ter no mínimo 3 caracteres!
+    </div>
+    <div class="error_message"
+      *ngIf="thoughtForm.get('authorship')?.errors?.['lowercase'] && thoughtForm.get('authorship')?.touched">
+      Esse campo aceita apenas letras minúsculas!
+    </div>
+
     <label for="model">Selecione o modelo do card:</label>
     <div class="container-radio">
       <div class="radio-modelo">
@@ -28,8 +44,7 @@
           <input type="radio"
             id="model1"
             value="modelo1"
-            name="model-card"
-            [(ngModel)]="thought.model"
+            formControlName="model"
           >
           <div class="custom-radio">
             <span></span>
@@ -39,8 +54,8 @@
         Prévia:
         <div class="modelo modelo1 ff-roboto-mono">
           <img src="../../../../assets/img/modelo1.png" alt="Blue quotes">
-          <p class="conteudo">{{ thought.content }}</p>
-          <p class="autoria"><b>{{ thought.authorship }}</b></p>
+          <p class="conteudo">{{ thoughtForm.get('content')?.value }}</p>
+          <p class="autoria"><b>{{ thoughtForm.get('authorship')?.value }}</b></p>
         </div>
       </div>
 
@@ -49,8 +64,7 @@
           <input type="radio"
             id="model2"
             value="modelo2"
-            name="model-card"
-            [(ngModel)]="thought.model"
+            formControlName="model"
           >
           <div class="custom-radio">
             <span></span>
@@ -60,8 +74,8 @@
         Prévia:
         <div class="modelo modelo2 ff-roboto-mono">
           <img src="../../../../assets/img/modelo2.png" alt="Light blue quotes">
-          <p class="conteudo">{{ thought.content }}</p>
-          <p class="autoria"><b>{{ thought.authorship }}</b></p>
+          <p class="conteudo">{{ thoughtForm.get('content')?.value }}</p>
+          <p class="autoria"><b>{{ thoughtForm.get('authorship')?.value }}</b></p>
         </div>
       </div>
 
@@ -70,8 +84,7 @@
           <input type="radio"
             id="model3"
             value="modelo3"
-            name="model-card"
-            [(ngModel)]="thought.model"
+            formControlName="model"
           >
           <div class="custom-radio">
             <span></span>
@@ -81,13 +94,19 @@
         Prévia:
         <div class="modelo modelo3 ff-roboto-mono">
           <img src="../../../../assets/img/modelo3.png" alt="Green quotes">
-          <p class="conteudo">{{ thought.content }}</p>
-          <p class="autoria"><b>{{ thought.authorship }}</b></p>
+          <p class="conteudo">{{ thoughtForm.get('content')?.value }}</p>
+          <p class="autoria"><b>{{ thoughtForm.get('authorship')?.value }}</b></p>
         </div>
       </div>
     </div>
     <div class="acoes">
-      <button class="botao" (click)="editThought()">Salvar</button>
+      <button
+        (click)="editThought()"
+        [disabled]="!thoughtForm.valid"
+        [ngClass]="enableButton()"
+      >
+        Salvar
+      </button>
       <button class="botao" routerLink="/listThought">Cancelar</button>
     </div>
   </form>

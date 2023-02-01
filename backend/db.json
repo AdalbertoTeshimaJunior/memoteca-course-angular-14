@@ -19,10 +19,10 @@
       "model": "modelo3"
     },
     {
+      "id": 4,
       "content": "Teste do Teste 123",
-      "authorship": "Junin312",
-      "model": "modelo1",
-      "id": 4
+      "authorship": "junin312",
+      "model": "modelo2"
     },
     {
       "content": "Fatex",
