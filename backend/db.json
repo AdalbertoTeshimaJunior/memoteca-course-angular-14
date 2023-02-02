@@ -12,7 +12,7 @@
       "content": "Estudando Angular",
       "authorship": "Dev Alura",
       "model": "modelo2",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "content": "Fatex",
       "authorship": "Tecx",
       "model": "modelo3",
-      "favorite": false,
+      "favorite": true,
       "id": 5
     },
     {
@@ -46,7 +46,7 @@
       "content": "Teste do Teste 86",
       "authorship": "junin312",
       "model": "modelo3",
-      "favorite": false,
+      "favorite": true,
       "id": 8
     }
   ]
